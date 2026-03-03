@@ -1,0 +1,39 @@
+import { Avatar, AvatarFallback, AvatarImage } from "@/shared/ui/shadcn/avatar";
+import { getUserInitials } from "@/shared/utils/get-user-initials";
+
+interface IWorkspaceActivityItemProps {
+   username: string;
+   userAvatar?: string;
+   activityLabel: string;
+   entityName: string;
+   time: string;
+}
+
+export const WorkspaceActivityItem = ({
+   username,
+   userAvatar,
+   activityLabel,
+   entityName,
+   time,
+}: IWorkspaceActivityItemProps) => {
+   return (
+      <>
+         <div className="flex justify-between items-center py-4 border-b max-md:flex-col">
+            <div className="flex gap-2 items-center">
+               <Avatar>
+                  <AvatarImage src={userAvatar ?? ""} />
+                  <AvatarFallback>{getUserInitials(username)}</AvatarFallback>
+               </Avatar>
+               <div className="text-base flex gap-1 items-center wrap-break-word max-lg:flex-wrap max-md:text-sm truncate">
+                  <span className="font-semibold">{username}</span>
+                  <span>{activityLabel}</span>
+                  <span className="font-semibold">{entityName}</span>
+               </div>
+            </div>
+            <div className="text-md text-muted-foreground italic max-md:text-sm">
+               {time}
+            </div>
+         </div>
+      </>
+   );
+};
