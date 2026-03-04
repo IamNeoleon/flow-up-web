@@ -5,7 +5,7 @@ import { AppShell } from '../layouts/AppShell'
 import type { RouteObject } from 'react-router'
 
 // Lazy pages
-const LandingPage = lazy(() => import('@/pages/LandingPage'))
+const LandingPage = lazy(() => import('@/pages/LandingPage/LandingPage'))
 const HomePage = lazy(() => import('@/pages/HomePage'))
 const NotFoundPage = lazy(() => import('@/pages/NotFoundPage'))
 const AuthPage = lazy(() => import('@/pages/AuthPage'))
