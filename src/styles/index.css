@@ -216,6 +216,12 @@ button:disabled {
   }
 }
 
+.wrapper {
+  min-width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
 .app-toast {
   background: var(--card) !important;
   color: var(--card-foreground) !important;
@@ -261,4 +267,8 @@ button:disabled {
 
 #nprogress .spinner {
   display: none !important;
+}
+
+.container {
+  padding: 0 15px;
 }

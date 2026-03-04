@@ -31,7 +31,13 @@
       "showPassword": "Show password",
       "total": "Total",
       "saving": "Saving...",
-      "dangerZone": "Danger zone"
+      "dangerZone": "Danger zone",
+      "getStarted": "Get started"
+   },
+   "headerMenu": {
+      "why": "Why Flow Up",
+      "features": "Features",
+      "preview": "Preview"
    },
    "language": {
       "language": "Language"

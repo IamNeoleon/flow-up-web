@@ -31,7 +31,13 @@
       "showPassword": "Скрыть пароль",
       "total": "Всего",
       "saving": "Сохранение...",
-      "dangerZone": "Критические действия"
+      "dangerZone": "Критические действия",
+      "getStarted": "Начать работу"
+   },
+   "headerMenu": {
+      "why": "Почему Flow Up",
+      "features": "Функции",
+      "preview": "Обзор"
    },
    "language": {
       "language": "Язык"

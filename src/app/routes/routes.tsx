@@ -5,6 +5,7 @@ import { AppShell } from '../layouts/AppShell'
 import type { RouteObject } from 'react-router'
 
 // Lazy pages
+const LandingPage = lazy(() => import('@/pages/LandingPage'))
 const HomePage = lazy(() => import('@/pages/HomePage'))
 const NotFoundPage = lazy(() => import('@/pages/NotFoundPage'))
 const AuthPage = lazy(() => import('@/pages/AuthPage'))
@@ -19,6 +20,10 @@ export const routes: RouteObject[] = [
    {
       element: <AppShell />,
       children: [
+         {
+            index: true,
+            element: <LandingPage />
+         },
          {
             path: '/auth',
             element: <AuthPage />,
