@@ -35,6 +35,10 @@
       "getStarted": "Get started",
       "slogan": "Structured Work. Real Progress."
    },
+   "intro": {
+      "title": "Flow Up — Task & Project Management Platform",
+      "text": "Plan projects, organize tasks, and track progress in one clear workspace. Flow Up helps teams stay focused and keep work moving forward."
+   },
    "headerMenu": {
       "why": "Why Flow Up",
       "features": "Features",

@@ -222,6 +222,11 @@ button:disabled {
   overflow-x: hidden;
 }
 
+.container {
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
 .app-toast {
   background: var(--card) !important;
   color: var(--card-foreground) !important;
@@ -267,8 +272,4 @@ button:disabled {
 
 #nprogress .spinner {
   display: none !important;
-}
-
-.container {
-  padding: 0 15px;
 }
