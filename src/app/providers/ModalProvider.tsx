@@ -47,7 +47,7 @@ export const ModalProvider = ({ children }: { children: ReactNode }) => {
 							{modalOptions?.description}
 						</DialogDescription>
 					</DialogHeader>
-					<div className="mt-4 max-h-[calc(85vh-120px)] overflow-y-auto">
+					<div className="pt-1 max-h-[calc(85vh-120px)] overflow-y-auto px-1">
 						{modalOptions?.content}
 					</div>
 				</DialogContent>
