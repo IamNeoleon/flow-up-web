@@ -4,7 +4,6 @@ export const {
    useRegisterMutation,
    useLoginMutation,
    useRefreshMutation,
-   useLazyGoogleLoginQuery,
    useLogoutMutation,
    useSendCodeMutation,
    useVerifyCodeMutation,

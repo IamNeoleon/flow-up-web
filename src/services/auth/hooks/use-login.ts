@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from "react-router"
 import { useLoginMutation } from "../api/hooks/"
 import { useAppDispatch } from "@/shared/hooks/redux"
 import { setToken } from "@/store/slices/auth-slice"
+import { routes } from "@/shared/routes"
 import type { LoginBody } from "../api/contracts/login"
 
 export const useLogin = () => {
@@ -11,7 +12,7 @@ export const useLogin = () => {
 	const dispatch = useAppDispatch()
 	const navigate = useNavigate()
 	const location = useLocation()
-	const from = location.state?.from?.pathname || '/'
+	const from = location.state?.from?.pathname || routes.home()
 	const [login, { isLoading, isError }] = useLoginMutation()
 
 	const handleLogin = async (formData: LoginBody) => {

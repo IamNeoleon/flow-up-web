@@ -12,7 +12,7 @@ const initialState: IState = {
    boardPermissions: null
 };
 
-export const boardSlice = createSlice({
+const boardSlice = createSlice({
    name: 'board',
    initialState,
    reducers: {

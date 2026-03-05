@@ -49,7 +49,7 @@ export const TaskList = ({ tasks, colId, color }: IProps) => {
    return (
       <div className="flex flex-col h-full">
          <Droppable droppableId={colId} type="TASK">
-            {(provided, snapshot) => (
+            {(provided) => (
                <ul
                   ref={provided.innerRef}
                   {...provided.droppableProps}

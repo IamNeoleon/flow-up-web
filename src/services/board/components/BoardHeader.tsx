@@ -76,70 +76,68 @@ export const BoardHeader = ({ workspaceId, boardId, boardTitle, currentWorkspace
          }).unwrap()
 
          toast.success(t('board.deleteBoardSuccess'))
-         navigate(`/workspaces/${workspaceId}`)
+         navigate(routes.workspace({ workspaceId }))
       } catch (error) {
          toast.error(t('board.deleteBoardError'))
       }
    }
 
    return (
-      <>
-         <div className="flex items-center justify-between mb-4 max-md:mb-3">
-            <div>
-               <div className="mb-3">
-                  <ContentEditable
-                     html={title}
-                     onChange={(e) => setTitle(e.target.value)}
-                     onBlur={(e: React.FocusEvent<HTMLDivElement>) => handleSave(e)}
-                     className="hover:cursor-pointer text-4xl font-semibold mb-2 border-b border-transparent focus:border-primary outline-none cursor-text"
-                  />
-               </div>
-               <Breadcrumb>
-                  <BreadcrumbList>
-                     <BreadcrumbItem>
-                        <Link to={routes.workspace({ workspaceId })}>{currentWorkspace?.name}</Link>
-                     </BreadcrumbItem>
-                     <BreadcrumbSeparator />
-                     <BreadcrumbItem>
-                        <BreadcrumbPage>{boardTitle}</BreadcrumbPage>
-                     </BreadcrumbItem>
-                  </BreadcrumbList>
-               </Breadcrumb>
+      <div className="flex items-center justify-between mb-4 max-md:mb-3">
+         <div>
+            <div className="mb-3">
+               <ContentEditable
+                  html={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                  onBlur={(e: React.FocusEvent<HTMLDivElement>) => handleSave(e)}
+                  className="hover:cursor-pointer text-4xl font-semibold mb-2 border-b border-transparent focus:border-primary outline-none cursor-text"
+               />
             </div>
-            <div className="flex flex-col gap-2 items-end">
-               <div className="flex gap-2">
-                  <Button onClick={handleOpenMembers} variant='outline'>
-                     <Users />
-                     <span>
-                        {t("board.membersButton")}
-                     </span>
-                  </Button>
-                  {
-                     permissions?.canDeleteBoard && (
-                        <AlertDialogBlock
-                           title={t('board.deleteTitle')}
-                           description={t('board.deleteDescription')}
-                           cancelLabel={t('common.cancel')}
-                           actionLabel={t('common.yes')}
-                           onClickAction={handleDeleteBoard}
-                        >
-                           <Button variant='outline' className="bg-red-700 hover:bg-red-500">
-                              <Trash2 color="#fff" />
-                           </Button>
-                        </AlertDialogBlock>
-                     )
-                  }
-               </div>
+            <Breadcrumb>
+               <BreadcrumbList>
+                  <BreadcrumbItem>
+                     <Link to={routes.workspace({ workspaceId })}>{currentWorkspace?.name}</Link>
+                  </BreadcrumbItem>
+                  <BreadcrumbSeparator />
+                  <BreadcrumbItem>
+                     <BreadcrumbPage>{boardTitle}</BreadcrumbPage>
+                  </BreadcrumbItem>
+               </BreadcrumbList>
+            </Breadcrumb>
+         </div>
+         <div className="flex flex-col gap-2 items-end">
+            <div className="flex gap-2">
+               <Button onClick={handleOpenMembers} variant='outline'>
+                  <Users />
+                  <span>
+                     {t("board.membersButton")}
+                  </span>
+               </Button>
                {
-                  permissions?.canCreateColumn && (
-                     <Button onClick={handleCreateCol} className="flex items-center gap-1">
-                        <Plus />
-                        <span> {t("column.create")}</span>
-                     </Button>
+                  permissions?.canDeleteBoard && (
+                     <AlertDialogBlock
+                        title={t('board.deleteTitle')}
+                        description={t('board.deleteDescription')}
+                        cancelLabel={t('common.cancel')}
+                        actionLabel={t('common.yes')}
+                        onClickAction={handleDeleteBoard}
+                     >
+                        <Button variant='outline' className="bg-red-700 hover:bg-red-500">
+                           <Trash2 color="#fff" />
+                        </Button>
+                     </AlertDialogBlock>
                   )
                }
             </div>
-         </div >
-      </>
+            {
+               permissions?.canCreateColumn && (
+                  <Button onClick={handleCreateCol} className="flex items-center gap-1">
+                     <Plus />
+                     <span> {t("column.create")}</span>
+                  </Button>
+               )
+            }
+         </div>
+      </div >
    );
 };

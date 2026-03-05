@@ -14,7 +14,6 @@ export const {
    useDeleteMemberMutation,
    useGetActivityQuery,
    useGetStatisticsQuery,
-   useLazyGetWorkspaceMembersQuery,
    useLeaveWorkspaceMutation,
    useDeleteWorkspaceMutation,
 } = workspaceApi;

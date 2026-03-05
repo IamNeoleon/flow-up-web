@@ -10,7 +10,7 @@ const initialState: IState = {
 	user: null
 };
 
-export const userSlice = createSlice({
+const userSlice = createSlice({
 	name: 'user',
 	initialState,
 	reducers: {

@@ -33,12 +33,7 @@ export default defineConfig({
             "@radix-ui/react-tooltip",
             "@radix-ui/react-avatar",
             "@radix-ui/react-dropdown-menu",
-          ],
-          dnd: [
-            "@dnd-kit/core",
-            "@dnd-kit/sortable",
-            "@dnd-kit/utilities",
-          ],
+          ]
         },
       },
     },

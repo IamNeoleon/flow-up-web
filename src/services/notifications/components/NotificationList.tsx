@@ -5,6 +5,7 @@ import { Spinner } from "@/shared/ui/shadcn/spinner";
 import { Button } from "@/shared/ui/shadcn/button";
 import { useClickOutside } from "@/shared/hooks/use-click-outside";
 import { cn } from "@/shared/utils/cn";
+import { useSidebar } from "@/shared/ui/shadcn/sidebar";
 import type { Notification } from "../types/notification";
 
 interface IProps {
@@ -18,8 +19,8 @@ interface IProps {
 
 export const NotificationList = ({ open, close, notifications, isLoading, isError, refetch }: IProps) => {
    const { t } = useTranslation();
-
    const ref = useClickOutside<HTMLDivElement>(close);
+   const { state: openSidebar } = useSidebar();
 
    const isEmptyList =
       !isLoading &&
@@ -61,19 +62,18 @@ export const NotificationList = ({ open, close, notifications, isLoading, isErro
       <div
          ref={ref}
          className={cn(
-            "fixed top-0 -left-full h-screen max-h-screen w-[350px] bg-background border z-50 transition-all duration-350 px-5 py-3 overflow-y-auto",
+            "fixed top-0 -left-full h-screen max-h-screen w-[350px] bg-background border z-1000 transition-all duration-350 px-5 py-3 overflow-y-auto",
             "overscroll-contain scrollbar-gutter-stable",
             "scrollbar-thin scrollbar-thumb-border scrollbar-track-transparent hover:scrollbar-thumb-border",
-            open && "left-(--sidebar-width)"
+            open && `${openSidebar === 'expanded' ? 'left-(--sidebar-width)' : 'left-[47px]'}`
          )}
       >
          <div className="flex justify-between items-center mb-5">
             <span className="font-medium text-base">{t("notifications.title")}</span>
             <Button variant="ghost" onClick={close}>
-               <PanelLeftClose className="text-black dark:text-white" />
+               <PanelLeftClose />
             </Button>
          </div>
-
          <div className={cn("flex flex-col gap-3 justify-center", isEmptyList && "h-full items-center")}>
             {content}
          </div>

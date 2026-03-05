@@ -6,9 +6,9 @@ import { useCreateBoardMutation } from "../api/hooks";
 import { Input } from "@/shared/ui/shadcn/input";
 import { Button } from "@/shared/ui/shadcn/button";
 import { Spinner } from "@/shared/ui/shadcn/spinner";
-import { createBoardSchema, type CreateBoardFormValues } from "../schemas/create-board.schema";
 import { Label } from "@/shared/ui/shadcn/label";
 import { cn } from "@/shared/utils/cn";
+import { createBoardSchema, type CreateBoardFormValues } from "../schemas/create-board.schema";
 
 interface IProps {
    close: () => void;

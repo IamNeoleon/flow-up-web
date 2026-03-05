@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router";
 import { useTranslation } from "react-i18next";
-import { ServerCrash, FolderX } from "lucide-react";
+import { ServerCrash, FolderX, LayoutGrid } from "lucide-react";
 import { skipToken } from "@reduxjs/toolkit/query";
 import { useGetWorkspaceQuery } from "@/services/workspace/api/hooks/";
 import { WorkspaceHeader } from "@/services/workspace/components/WorkspaceHeader";
@@ -74,11 +74,14 @@ const WorkspacePage = () => {
          <WorkspaceHeader workspace={workspace} permissions={permissions} />
          <WorkspaceStats workspaceId={workspace.id} />
          <div className="pb-10 border-b">
-            <h2 className="text-xl font-medium mb-5">{t("board.listTitle")}</h2>
+            <div className="mb-3 flex items-center gap-1">
+               <LayoutGrid size={20} />
+               <h2 className="text-xl font-medium">{t("board.listTitle")}</h2>
+            </div>
             <BoardList boards={workspace.boards} />
          </div>
          <div className="pt-5 flex gap-10 max-2xl:flex-col-reverse max-2xl:gap-12">
-            <div className="flex-auto min-h-[250px]">
+            <div className="flex-auto min-h-[250px] max-2xl:h-[250px]">
                <WorkspaceRecent workspaceId={workspace.id} />
             </div>
             <div className="flex-[0_0_30%] max-2xl:flex-auto max-2xl:h-[250px]">

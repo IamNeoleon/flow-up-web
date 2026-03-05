@@ -5,7 +5,7 @@ type SendFeedbackArgs = {
    message: string;
 };
 
-export const feedbackApi = baseApi.injectEndpoints({
+const feedbackApi = baseApi.injectEndpoints({
    endpoints: (builder) => ({
       sendFeedback: builder.mutation<void, SendFeedbackArgs>({
          query: (body) => ({

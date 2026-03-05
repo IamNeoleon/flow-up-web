@@ -4,8 +4,3 @@ export interface IRegisterBody {
 	password: string,
 	fullName: string
 }
-
-export interface ILoginBody {
-	email: string,
-	password: string
-}
