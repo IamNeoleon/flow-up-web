@@ -1,9 +1,13 @@
-import { useState } from "react";
 import { toast } from "sonner";
 import { useTranslation } from "react-i18next";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useCreateTaskMutation } from "../api/hooks";
 import { Button } from "@/shared/ui/shadcn/button";
 import { Input } from "@/shared/ui/shadcn/input";
+import { useForm } from "react-hook-form";
+import { createTaskSchema, type CreateTaskFormValues } from "../schemas/create-task-schema";
+import { Label } from "@/shared/ui/shadcn/label";
+import { cn } from "@/shared/utils/cn";
 
 interface IProps {
    close: () => void;
@@ -12,35 +16,57 @@ interface IProps {
 }
 
 export const CreateTask = ({ close, boardId, colId }: IProps) => {
-   const { t } = useTranslation()
-   const [create] = useCreateTaskMutation()
-   const [name, setName] = useState('')
+   const { t } = useTranslation();
+   const [create] = useCreateTaskMutation();
 
-   const handleSubmit = async (e: React.FormEvent) => {
-      e.preventDefault()
+   const {
+      register,
+      handleSubmit,
+      formState: { errors, isSubmitting },
+   } = useForm<CreateTaskFormValues>({
+      resolver: zodResolver(createTaskSchema),
+      mode: "onChange",
+   });
 
-      const toastId = toast.loading(t("task.createLoading"))
+   const handleCreateTask = async (data: CreateTaskFormValues) => {
+      const toastId = toast.loading(t("task.createLoading"));
 
       try {
          await create({
             boardId,
             colId,
-            body: { name },
+            body: data,
          }).unwrap();
 
          toast.success(t("task.createSuccess"), { id: toastId });
          close();
-      } catch (err) {
+      } catch {
          toast.error(t("task.createError"), { id: toastId });
       }
-   }
+   };
 
    return (
-      <>
-         <form onSubmit={handleSubmit}>
-            <Input value={name} onChange={(e) => setName(e.target.value)} name='title' required placeholder={t("task.createPlaceholder")} />
-            <Button className='w-full mt-4' type='submit'>{t("task.create")}</Button>
-         </form>
-      </>
+      <form onSubmit={handleSubmit(handleCreateTask)}>
+         <div>
+            <Label className="mb-1">{t("task.taskName")}</Label>
+            <Input
+               {...register("name")}
+               placeholder={t("task.createPlaceholder")}
+               className={cn(errors.name?.message && 'border-destructive')}
+            />
+            {errors.name && (
+               <p className="text-sm text-destructive mt-1">
+                  {errors.name.message}
+               </p>
+            )}
+         </div>
+         <Button
+            className="w-full mt-4"
+            type="submit"
+            disabled={isSubmitting}
+         >
+            {t("task.create")}
+         </Button>
+      </form>
    );
 };

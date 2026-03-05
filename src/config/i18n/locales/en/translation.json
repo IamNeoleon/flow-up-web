@@ -292,7 +292,8 @@
          "deleteError": "Failed to delete attachment"
       },
       "open": "Open task",
-      "moveHereLable": "Drag the task here"
+      "moveHereLable": "Drag the task here",
+      "taskName": "Task name"
    },
    "priority": {
       "low": "Low",
