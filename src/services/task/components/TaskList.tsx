@@ -84,14 +84,7 @@ export const TaskList = ({ tasks, colId, color }: IProps) => {
                         )}
                      </Draggable>
                   ))}
-
                   {provided.placeholder}
-
-                  {sortedTasks.length === 0 && !snapshot.isDraggingOver && (
-                     <div className="text-white/60 text-sm py-2 select-none text-center">
-                        {t('task.moveHereLable')}
-                     </div>
-                  )}
                </ul>
             )}
          </Droppable>
