@@ -42,7 +42,7 @@
    "headerMenu": {
       "why": "Why Flow Up",
       "features": "Features",
-      "preview": "Preview"
+      "feedback": "Feedback"
    },
    "language": {
       "language": "Language"
@@ -430,5 +430,90 @@
       "title4": "Glad you’re here",
       "title5": "Hope you’re having a good day",
       "lastOpenedTasks": "Last opened tasks"
+   },
+   "whyBlock": {
+      "title": "Why Flow Up?",
+      "subtitle": "Built for teams that want clarity and momentum.",
+      "items": {
+         "clarity": {
+            "title": "Clarity",
+            "description": "Clear structure for projects, boards, and tasks so everyone understands what needs to be done."
+         },
+         "structure": {
+            "title": "Structure",
+            "description": "Organize workspaces, boards, and workflows without chaos or unnecessary complexity."
+         },
+         "momentum": {
+            "title": "Momentum",
+            "description": "Move tasks forward with a fast interface, drag-and-drop workflow, and real-time updates."
+         }
+      }
+   },
+   "features": {
+      "title": "Features",
+      "subtitle": "Everything you need to organize and move work forward.",
+      "items": {
+         "kanban": {
+            "title": "Kanban Boards",
+            "description": "Visualize work with flexible boards and columns to track progress clearly."
+         },
+         "dragdrop": {
+            "title": "Drag & Drop Workflow",
+            "description": "Move tasks between columns instantly with a smooth drag-and-drop interface."
+         },
+         "realtime": {
+            "title": "Real-Time Updates",
+            "description": "All changes appear instantly for your team without refreshing the page."
+         },
+         "roles": {
+            "title": "Roles & Permissions",
+            "description": "Control access to workspaces and boards with clear role-based permissions."
+         },
+         "activity": {
+            "title": "Activity Tracking",
+            "description": "Track recent activity and see what your team is working on."
+         },
+         "analytics": {
+            "title": "Analytics & Statistics",
+            "description": "Understand project progress with built-in statistics and insights."
+         }
+      }
+   },
+   "cta": {
+      "title": "Start organizing your work today",
+      "subtitle": "Create your first workspace and bring your team together.",
+      "button": "Create You First Workspace"
+   },
+   "feedback": {
+      "title": "Have feedback?",
+      "subtitle": "If you have suggestions, ideas, or found a bug — let us know.",
+      "button": "Send Feedback",
+      "email": "Your Email",
+      "message": "Your message",
+      "emailError": "Invalid email",
+      "messageShort": "To short message",
+      "messageLong": "To long message",
+      "sendSuccess": "Your message has been sent successfully",
+      "sendError": "There was an error sending your message"
+   },
+   "footer": {
+      "tagline": "Structured Work. Real Progress.",
+      "product": "Product",
+      "resources": "Resources",
+      "contact": "Contact",
+      "menu": {
+         "features": "Features",
+         "why": "Why Flow Up",
+         "feedback": "Feedback",
+         "github": "GitHub",
+         "api": "API",
+         "docs": "Documentation",
+         "email": "support@flowup.app"
+      },
+      "legal": {
+         "copyright": "© 2026 Flow Up. All rights reserved.",
+         "privacy": "Privacy Policy",
+         "terms": "Terms of Service"
+      }
    }
 }

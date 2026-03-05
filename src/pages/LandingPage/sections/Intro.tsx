@@ -19,7 +19,7 @@ export const Intro = () => {
    };
 
    return (
-      <div className="pt-[130px] pb-10 border-b max-md:pt-[150px] max-md:pb-[150px] max-sm:pb-10 max-sm:pt-[130px]">
+      <div className="pt-[130px] pb-20 border-b max-md:pt-[150px] max-md:pb-[150px] max-sm:pb-10 max-sm:pt-[130px]">
          <div className="container">
             <div className="text-center max-w-3xl mx-auto mb-10">
                <motion.h1
@@ -48,7 +48,7 @@ export const Intro = () => {
                   transition={reduce ? { duration: 0 } : { duration: 0.55, ease: "easeOut", delay: 0.16 }}
                >
                   <Link to={routes.home()}>
-                     <Button className="text-lg py-7 w-52">{t("common.getStarted")}</Button>
+                     <Button className="text-lg py-7 w-52 shadow-lg">{t("common.getStarted")}</Button>
                   </Link>
                </motion.div>
             </div>
@@ -63,7 +63,7 @@ export const Intro = () => {
                   overflow-hidden
                   rounded-2xl
                   border
-                  shadow-sm
+                  shadow-2xl
                   max-md:hidden
                "
             >

@@ -8,15 +8,9 @@ import { cn } from "@/shared/utils/cn";
 import { routes } from "@/shared/routes";
 
 const menu = [
-   {
-      key: 'why',
-   },
-   {
-      key: 'features',
-   },
-   {
-      key: 'preview',
-   }
+   { key: 'why', href: '#why' },
+   { key: 'features', href: '#features' },
+   { key: 'feedback', href: '#feedback' },
 ]
 
 export const Header = () => {
@@ -24,7 +18,7 @@ export const Header = () => {
    const [openMenu, setOpenMenu] = useState<boolean>(false)
 
    return (
-      <header className="absolute top-0 left-0 z-100 w-full py-4 border-b">
+      <header className="fixed top-0 left-0 z-100 w-full py-4 border-b bg-background/80 backdrop-blur-md">
          <div className="container mx-auto flex justify-between items-center">
             <Link to={'/'}>
                <MainLogo />
@@ -46,7 +40,8 @@ export const Header = () => {
                      {menu.map((item) => (
                         <li key={item.key}>
                            <a
-                              href="/"
+                              href={item.href}
+                              onClick={() => setOpenMenu(false)}
                               className="
                                  relative
                                  after:absolute
