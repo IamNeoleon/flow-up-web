@@ -1,52 +1,59 @@
-import { useState } from "react"
 import { useTranslation } from "react-i18next"
 import { toast } from "sonner"
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
 import { useCreateWorkspaceMutation } from "../api/hooks/"
 import { Button } from "@/shared/ui/shadcn/button"
 import { Input } from "@/shared/ui/shadcn/input"
 import { Label } from "@/shared/ui/shadcn/label"
 import { Spinner } from "@/shared/ui/shadcn/spinner"
+import { createWorkspaceSchema, type CreateWorkspaceFormValues } from "../schemas/create-workspace.schema"
 
 export const CreateWorkspace = ({ close }: { close: () => void }) => {
 	const { t } = useTranslation()
-
 	const [create, { isLoading }] = useCreateWorkspaceMutation()
 
-	const [workspaceName, setWorkspaceName] = useState<string>('')
+	const {
+		register,
+		handleSubmit,
+		formState: { errors }
+	} = useForm<CreateWorkspaceFormValues>({
+		resolver: zodResolver(createWorkspaceSchema),
+		mode: "onChange"
+	})
 
-	const handleSubmit = async (e: React.FormEvent) => {
-		e.preventDefault()
-
+	const onSubmit = async (data: CreateWorkspaceFormValues) => {
 		if (isLoading) return
 
 		try {
 			await create({
-				body: { name: workspaceName }
+				body: data
 			}).unwrap()
 
 			toast.success(t("workspace.createSuccess"))
-		} catch (error) {
+			close()
+		} catch {
 			toast.error(t("workspace.createError"))
 		}
-
-		close()
 	}
 
 	return (
-		<form onSubmit={handleSubmit}>
+		<form onSubmit={handleSubmit(onSubmit)}>
 			<div className="grid gap-4">
-				<div className="grid gap-3">
-					<Label htmlFor="name-1">{t("workspace.nameLabel")}</Label>
-					<Input required id="name-1" name="Workspace name" value={workspaceName} onChange={e => setWorkspaceName(e.target.value)} />
+				<div className="grid gap-1">
+					<Label htmlFor="name">{t("workspace.nameLabel")}</Label>
+					<Input
+						id="name"
+						{...register("name")}
+					/>
+					{errors.name && (
+						<p className="text-sm text-destructive">
+							{errors.name.message}
+						</p>
+					)}
 				</div>
 				<Button disabled={isLoading} type="submit">
-					{
-						!isLoading ? (
-							t("common.create")
-						) : (
-							<Spinner />
-						)
-					}
+					{!isLoading ? t("common.create") : <Spinner />}
 				</Button>
 			</div>
 		</form>

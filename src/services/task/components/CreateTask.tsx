@@ -5,7 +5,7 @@ import { useCreateTaskMutation } from "../api/hooks";
 import { Button } from "@/shared/ui/shadcn/button";
 import { Input } from "@/shared/ui/shadcn/input";
 import { useForm } from "react-hook-form";
-import { createTaskSchema, type CreateTaskFormValues } from "../schemas/create-task-schema";
+import { createTaskSchema, type CreateTaskFormValues } from "../schemas/create-task.schema";
 import { Label } from "@/shared/ui/shadcn/label";
 import { cn } from "@/shared/utils/cn";
 
