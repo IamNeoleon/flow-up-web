@@ -12,6 +12,7 @@ import { Label } from "@/shared/ui/shadcn/label";
 import { COLUMN_STATUS_LABELS } from "../constants/column-status";
 import { getErrorMessage } from "@/shared/utils/get-error-message";
 import type { TColumnStatus } from "../types/column-status";
+import { Spinner } from "@/shared/ui/shadcn/spinner";
 
 interface IProps {
    boardId: string,
@@ -23,10 +24,12 @@ export const CreateColumn = ({ boardId, close }: IProps) => {
    const [name, setName] = useState('')
    const [status, setStatus] = useState<TColumnStatus>('TODO')
    const [color, setColor] = useState<string>('#3c3c3c');
-   const [create] = useCreateColumnMutation()
+   const [create, { isLoading }] = useCreateColumnMutation()
 
    const handleSubmit = async (e: React.FormEvent) => {
       e.preventDefault()
+
+      if (isLoading) return;
 
       try {
          await create({
@@ -101,7 +104,9 @@ export const CreateColumn = ({ boardId, close }: IProps) => {
                <ColorPicker id="create-color-picker" style={{ width: "100%" }} color={color} onChange={setColor} />
             </div>
          </div>
-         <Button className="w-full" type="submit">{t("column.create")}</Button>
+         <Button disabled={isLoading} className="w-full" type="submit">
+            {isLoading ? <Spinner /> : `${t("column.create")}`}
+         </Button>
       </form>
    );
 };

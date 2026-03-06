@@ -25,7 +25,7 @@ const WorkspacePage = () => {
 
    if (isLoading) {
       return (
-         <div className="h-full flex flex-col justify-center items-center">
+         <div className="pt-48 flex flex-col justify-center items-center">
             <Spinner className="size-12" />
          </div>
       );

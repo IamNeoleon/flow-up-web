@@ -1,12 +1,13 @@
 import { Suspense } from "react";
 import { Outlet } from "react-router";
 import { useLocation } from "react-router";
+import { PageLoader } from "@/shared/ui/PageLoader";
 
 export function AppShell() {
    const location = useLocation();
 
    return (
-      <Suspense fallback={'Loading...'}>
+      <Suspense fallback={<PageLoader />}>
          <div
             key={location.pathname}
             className="w-full"

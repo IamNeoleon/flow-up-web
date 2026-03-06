@@ -25,6 +25,8 @@ export const CreateBoard = ({ close, workspaceId }: IProps) => {
    });
 
    const handleCreate = async (data: CreateBoardFormValues) => {
+      if (isLoading) return;
+
       try {
          await create({ workspaceId, body: data }).unwrap();
          toast.success(t("board.createSuccess"));
@@ -49,7 +51,7 @@ export const CreateBoard = ({ close, workspaceId }: IProps) => {
                </p>
             )}
          </div>
-         <Button className="w-full" type="submit">
+         <Button disabled={isLoading} className="w-full" type="submit">
             {isLoading ? <Spinner /> : t("common.create")}
          </Button>
       </form>
