@@ -139,9 +139,9 @@ export const TaskDetails = ({ taskId, colId, close }: IProps) => {
    }
 
    return (
-      <div className="py-14 px-16 relative">
+      <div className="relative">
          <SheetHeader>
-            <SheetTitle className="text-4xl mb-3">
+            <SheetTitle className="text-4xl mb-3 max-md:text-3xl max-sm:text-2xl">
                <ContentEditable
                   html={title}
                   onChange={e => setTitle(e.target.value)}
@@ -151,7 +151,7 @@ export const TaskDetails = ({ taskId, colId, close }: IProps) => {
                         handleUpdateDetails({ name: value })
                      }
                   }}
-                  className="font-bold outline-none border-b border-transparent focus:border-blue-500"
+                  className="font-bold outline-none border-b border-transparent focus:border-blue-500 line-clamp-4"
                />
             </SheetTitle>
             <div className="flex gap-5">
@@ -223,8 +223,9 @@ export const TaskDetails = ({ taskId, colId, close }: IProps) => {
          </SheetHeader>
          {
             permissions?.canDeleteTask && (
-               <div onClick={() => setOpenAlert(true)} className="cursor-pointer absolute bottom-20 right-16 z-10 w-14 h-14 bg-red-700 rounded-full hover:bg-red-400 transition-colors">
-                  <DeleteIcon size={30} color="#fff" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform" />
+               <div onClick={() => setOpenAlert(true)} className="
+               cursor-pointer absolute bottom-0 right-0 z-10 w-14 h-14 bg-red-700 rounded-full hover:bg-red-400 transition-colors">
+                  <DeleteIcon size={24} color="#fff" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform" />
                </div>
             )
          }

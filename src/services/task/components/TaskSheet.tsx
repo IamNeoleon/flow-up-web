@@ -24,7 +24,15 @@ export const TaskSheet = () => {
          open={open}
          onOpenChange={setOpen}
       >
-         <SheetContent className="overflow-y-auto" style={{ width: "45%", maxWidth: '100%' }}>
+         <SheetContent className="
+            overflow-y-scroll
+            w-full
+            md:w-[45%]
+            py-14 px-16 
+            max-md:py-8 max-md:px-10
+            max-xs:py-8! max-xs:px-6!
+            max-xxs:py-6! max-xss:px-2!
+         ">
             <SheetTitle className="sr-only">
                {t('common.edit')}
             </SheetTitle>

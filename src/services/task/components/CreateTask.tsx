@@ -30,7 +30,7 @@ export const CreateTask = ({ close, boardId, colId }: IProps) => {
 
    const handleCreateTask = async (data: CreateTaskFormValues) => {
       const toastId = toast.loading(t("task.createLoading"));
-
+      close();
       try {
          await create({
             boardId,
@@ -39,7 +39,6 @@ export const CreateTask = ({ close, boardId, colId }: IProps) => {
          }).unwrap();
 
          toast.success(t("task.createSuccess"), { id: toastId });
-         close();
       } catch {
          toast.error(t("task.createError"), { id: toastId });
       }

@@ -83,14 +83,20 @@ export const BoardHeader = ({ workspaceId, boardId, boardTitle, currentWorkspace
    }
 
    return (
-      <div className="flex items-center justify-between mb-4 max-md:mb-3">
-         <div>
-            <div className="mb-3">
+      <div className="flex items-center justify-between mb-4 max-md:mb-3
+         max-sm:flex-col max-sm:items-start
+      ">
+         <div className="max-sm:mb-3">
+            <div className="mb-3 max-sm:mb-2">
                <ContentEditable
                   html={title}
                   onChange={(e) => setTitle(e.target.value)}
                   onBlur={(e: React.FocusEvent<HTMLDivElement>) => handleSave(e)}
-                  className="hover:cursor-pointer text-4xl font-semibold mb-2 border-b border-transparent focus:border-primary outline-none cursor-text"
+                  className="
+                     hover:cursor-pointer text-4xl font-semibold 
+                     border-b border-transparent focus:border-primary 
+                     outline-none cursor-text max-sm:text-3xl
+                  "
                />
             </div>
             <Breadcrumb>
@@ -105,7 +111,7 @@ export const BoardHeader = ({ workspaceId, boardId, boardTitle, currentWorkspace
                </BreadcrumbList>
             </Breadcrumb>
          </div>
-         <div className="flex flex-col gap-2 items-end">
+         <div className="flex flex-col gap-2 items-end max-sm:flex-row max-sm:justify-between max-sm:w-full">
             <div className="flex gap-2">
                <Button onClick={handleOpenMembers} variant='outline'>
                   <Users />
@@ -122,7 +128,7 @@ export const BoardHeader = ({ workspaceId, boardId, boardTitle, currentWorkspace
                         actionLabel={t('common.yes')}
                         onClickAction={handleDeleteBoard}
                      >
-                        <Button variant='outline' className="bg-red-700 hover:bg-red-500">
+                        <Button variant='destructive'>
                            <Trash2 color="#fff" />
                         </Button>
                      </AlertDialogBlock>

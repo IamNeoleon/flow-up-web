@@ -53,7 +53,11 @@ export const TaskCard = memo(({ task, color, openTask, dragHandleProps }: IProps
       >
          <div style={{ backgroundColor: color }} className="absolute inset-0 rounded-sm brightness-50 dark:brightness-40" />
          <div className="relative z-10">
-            <h3 style={{ borderColor: color }} className="font-medium text-white border-b leading-tight pb-1 line-clamp-2 overflow-hidden wrap-break-word max-w-full">
+            <h3 style={{ borderColor: color }} className="
+               font-medium text-white border-b leading-tight 
+               pb-1 line-clamp-2 overflow-hidden 
+               wrap-break-word max-w-full max-sm:line-clamp-1"
+            >
                {task.name}
             </h3>
             <div className="pt-1 flex justify-between items-center text-[11px] brightness-100 text-white">
@@ -62,7 +66,7 @@ export const TaskCard = memo(({ task, color, openTask, dragHandleProps }: IProps
                      <div className="">{t('task.priority')}</div>
                      <div className="flex items-center gap-1">
                         <div style={{ backgroundColor: task.priority?.color ?? '#9CA3AF' }} className="w-3 h-3 bg-amber-700 rounded-full"></div>
-                        <span className="">
+                        <span>
                            {
                               task.priority?.name ? (
                                  t(`priority.${task.priority.name.toLowerCase()}`)

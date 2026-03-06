@@ -97,7 +97,7 @@ export const TaskList = ({ tasks, colId, color }: IProps) => {
                >
                   <div
                      style={{ backgroundColor: color }}
-                     className="absolute inset-0 rounded-lg transition-colors brightness-[0.4] hover:brightness-50"
+                     className="absolute inset-0 rounded-lg transition-colors brightness-[0.4] hover:brightness-[0.5] dark:brightness-[0.3] hover:dark:brightness-[0.4]"
                   />
                   <span
                      style={{ color }}

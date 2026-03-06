@@ -18,7 +18,7 @@ export const Column = ({ column, dragHandleProps }: IProps) => {
    const permissions = useAppSelector(selectPermissions);
 
    return (
-      <div className={cn("w-[380px] relative shadow-xl h-[75vh] max-md:w-[320px] max-sm:w-[300px]")}>
+      <div className={cn("w-[380px] relative shadow-xl h-[75vh] max-md:w-[350px] max-sm:w-[330px]")}>
          <div className="absolute inset-0 rounded-lg brightness-[0.4] dark:brightness-[0.3]" style={{ backgroundColor: columnApiColor }} />
          <div className="relative z-10 p-5 flex flex-col h-full">
             <div className="group flex items-center justify-between w-full border-b mb-2 pb-1 shrink-0" style={{ borderColor: columnApiColor }}>
