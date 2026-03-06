@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from "@/shared/hooks/redux";
 import { selectToken, setToken, logout } from "@/store/slices/auth-slice";
 import { useRefreshMutation } from "@/services/auth/api/hooks/";
 import { getTokenFromLs } from "@/shared/lib/localStorage";
+import { API_URL } from "@/shared/constants/api-url";
 
 type WsStatus = "disconnected" | "connecting" | "connected";
 
@@ -17,7 +18,6 @@ type WsApi = {
 };
 
 const WsContext = createContext<WsApi | null>(null);
-const API_URL: string = import.meta.env.VITE_API_URL;
 
 export function WsProvider({ children }: { children: React.ReactNode }) {
    const dispatch = useAppDispatch();

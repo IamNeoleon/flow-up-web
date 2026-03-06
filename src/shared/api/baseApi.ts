@@ -8,8 +8,7 @@ import {
 } from "@reduxjs/toolkit/query/react";
 import type { RootState } from "@/store";
 import { getTokenFromLs } from "../lib/localStorage";
-
-const API_URL = import.meta.env.VITE_API_URL;
+import { API_URL } from "@/shared/constants/api-url";
 
 const rawBaseQuery = fetchBaseQuery({
 	baseUrl: `${API_URL}/api`,
